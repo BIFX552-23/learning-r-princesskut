@@ -111,7 +111,7 @@ Key Points
 </div>
 </div>
 <section id="challenge-1" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-1">Challenge 1</h4>
+<h4 class="anchored" data-anchor-id="challenge-1">Challenge 1</h4> <img src="score1.png">
 <p>Look at the help page for <code>c</code>. What kind of vector do you expect will be created if you evaluate the following?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -128,13 +128,12 @@ Key Points
 </div>
 </div>
 <!-- Challenge 1 answer begin -->
-<pre><code>[1] 1 2 3
-[1] "d" "e" "f"
-[1] "1" "2" "f"</code></pre>
-<p>b<!-- Challenge 1 answer end --></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The c() function can vectors of all the same common type. The arguments will be coerced to a common type. For the first vector, the vector will be numbers, the second vector will be characters and the third vector will be coerced into characters because the numeric factors will be coerced.</p>
+<!-- Challenge 1 answer end -->
 </section>
 <section id="challenge-2" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-2">Challenge 2</h4>
+<h4 class="anchored" data-anchor-id="challenge-2">Challenge 2</h4> <img src="score2.png">
 <p>Look at the help for the <code>paste</code> function. You will need to use it later. What’s the difference between the <code>sep</code> and <code>collapse</code> arguments?</p>
 <!-- Challenge 2 answer begin -->
 <p>help(paste)</p>
@@ -142,7 +141,7 @@ Key Points
 <!-- Challenge 2 answer end -->
 </section>
 <section id="challenge-3" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-3">Challenge 3</h4>
+<h4 class="anchored" data-anchor-id="challenge-3">Challenge 3</h4> <img src="score3.png">
 <p>Use help to find a function (and its associated parameters) that you could use to load data from a tabular file in which columns are delimited with “tab) and the decimal point is a”.” (period). This check for decimal separator is important, especially if you are working with international colleagues, because different countries have different conventions for the decimal point (i.e.&nbsp;comma vs period).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">

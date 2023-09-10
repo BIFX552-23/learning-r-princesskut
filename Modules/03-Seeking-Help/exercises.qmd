@@ -26,13 +26,13 @@ c(1, 2, 'f')
 
 <!-- Challenge 1 answer begin -->
 
-```         
-[1] 1 2 3
-[1] "d" "e" "f"
-[1] "1" "2" "f"
+``` r
+help(c)
 ```
 
-b<!-- Challenge 1 answer end -->
+The c() function can vectors of all the same common type. The arguments will be coerced to a common type. For the first vector, the vector will be numbers, the second vector will be characters and the third vector will be coerced into characters because the numeric factors will be coerced.
+
+<!-- Challenge 1 answer end -->
 
 #### Challenge 2
 
