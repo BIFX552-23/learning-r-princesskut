@@ -26,9 +26,13 @@ c(1, 2, 'f')
 
 <!-- Challenge 1 answer begin -->
 
-Your answer goes here
+```         
+[1] 1 2 3
+[1] "d" "e" "f"
+[1] "1" "2" "f"
+```
 
-<!-- Challenge 1 answer end -->
+b<!-- Challenge 1 answer end -->
 
 #### Challenge 2
 
@@ -36,7 +40,9 @@ Look at the help for the `paste` function. You will need to use it later. What's
 
 <!-- Challenge 2 answer begin -->
 
-Your answer goes here
+help(paste)
+
+The difference between sep and collapse is that sep is a character string to separate the terms and collapse is an optional character string to separate results.
 
 <!-- Challenge 2 answer end -->
 
@@ -52,6 +58,6 @@ Use `??"read table"` to look up functions related to reading in tabular data.
 
 <!-- Challenge 3 answer begin -->
 
-Your answer goes here
+read.table()
 
 <!-- Challenge 3 answer end -->
