@@ -36,7 +36,10 @@ Come up with at least 2 different commands that will produce the following outpu
 <!-- Challenge 1 answer begin -->
 
 ```{r}
-# your commands go here
+x[2:4]
+
+
+x[c(2,3,4)]
 ```
 
 <!-- Challenge 1 answer end -->
@@ -56,7 +59,8 @@ Write a subsetting command to return the values in x that are greater than 4 and
 <!-- Challenge 2 answer begin -->
 
 ```{r}
-# your command goes here
+x1 <- x[(x<7) & (x > 4)]
+x1
 ```
 
 <!-- Challenge 2 answer end -->
@@ -92,9 +96,15 @@ There's a wrong way (using only `==`), which will give you a warning; a clunky w
 <!-- Challenge 3 answer begin -->
 
 ```{r}
-# wrong way to subset `countries`
-# clunky way to subset `countries`
-# elegant way to subset `countries`
+# Wrong way
+con <- countries == seAsia
+con
+# Clunky but correct 
+con1 <- (countries== seAsia[1] | countries==seAsia[2] | countries == seAsia[3] | countries == seAsia[4] | countries== seAsia[5])
+con1
+# Correct way to subset countries 
+Correct <- countries %in% seAsia
+Correct
 ```
 
 <!-- Challenge 3 answer end -->
@@ -120,7 +130,7 @@ D. `m[2,c(4,5)]`
 
 <!-- Challenge 4 answer begin -->
 
-A, B, C, or D?
+D is the answer.
 
 <!-- Challenge 4 answer end -->
 
@@ -137,7 +147,7 @@ Using your knowledge of both list and vector subsetting, extract the number 2 fr
 <!-- Challenge 5 answer begin -->
 
 ```{r}
-# your answer goes here
+xlist$b[2]
 ```
 
 <!-- Challenge 5 answer end -->
@@ -156,6 +166,8 @@ Extract the residual degrees of freedom (hint: `attributes()` will help you)
 
 ```{r}
 # your answer goes here
+attributes(mod)
+mod$df.residual
 ```
 
 <!-- Challenge 6 answer end -->
@@ -169,31 +181,31 @@ Fix each of the following common data frame subsetting errors:
 -   Extract observations collected for the year 1957
 
 ```{r}
-gapminder[gapminder$year = 1957,]
+gapminder[gapminder$year %in% 1957,]
 ```
 
 -   Extract all columns except 1 through to 4
 
 ```{r}
-gapminder[,-1:4]
+gapminder[,-c(1:4)]
 ```
 
 -   Extract the rows where the life expectancy is longer the 80 years
 
 ```{r}
-gapminder[gapminder$lifeExp > 80]
+gapminder[gapminder$lifeExp > 80, ]
 ```
 
 -   Extract the first row, and the fourth and fifth columns (`continent` and `lifeExp`).
 
 ```{r}
-gapminder[1, 4, 5]
+gapminder[-c(1, 4, 5)]
 ```
 
 -   Advanced: extract rows that contain information for the years 2002 and 2007
 
 ```{r}
-gapminder[gapminder$year == 2002 | 2007,]
+gapminder[gapminder$year %in% c(2002, 2007),]
 ```
 
 <!-- Challenge 7 answer end -->
@@ -203,6 +215,8 @@ gapminder[gapminder$year == 2002 | 2007,]
 1.  Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
 
 <!-- Challenge 8a answer begin -->
+
+The error occurs because gapminder is not a subset. gapminder\[1:20,\] works because the data is being subsetted.
 
 <!-- Challenge 8a answer end -->
 
@@ -214,6 +228,8 @@ gapminder[gapminder$year == 2002 | 2007,]
 
 ```{r}
 # your code goes here
+gapminder_small <- gapminder[c(1:9, 19:23),]
+gapminder_small
 ```
 
 <!-- Challenge 8b answer end -->
