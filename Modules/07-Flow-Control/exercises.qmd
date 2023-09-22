@@ -28,7 +28,9 @@ Use an `if()` statement to print a suitable message reporting whether there are 
 <!-- Challenge 1a answer begin -->
 
 ```{r}
-# you code goes here
+if (any(gapminder$year == 2002)) {
+print("Yes, 2002 is in the dataset")
+}
 ```
 
 <!-- Challenge 1a answer end -->
@@ -40,7 +42,9 @@ Now do the same for 2012.
 <!-- Challenge 1b answer begin -->
 
 ```{r}
-# your code goes here
+if (any(gapminder$year == 2012)) {
+print("Yes, 2012 is in the dataset")
+}
 ```
 
 <!-- Challenge 1b answer end -->
@@ -75,6 +79,14 @@ Compare the objects `output_vector` and `output_vector2`. Are they the same? If 
 
 Code and/or text answer goes here.
 
+`output_vector`
+
+`output_vector2`
+
+`all(output_vector == output_vector2)`
+
+They are not the same because they are in different order. The transpose t() function can make them the same.
+
 <!-- Challenge 2 answer end -->
 
 #### Challenge 3
@@ -84,7 +96,15 @@ Write a script that loops through the `gapminder` data by continent and prints o
 <!-- Challenge 3 answer begin -->
 
 ```{r}
-# your code goes here
+unique(gapminder$continent)
+
+for (iContinent in unique(gapminder$continent)) {
+  tmp <- gapminder[gapminder$continent == iContinent, ]
+  cat(iContinent, mean(tmp$lifeExp, na.rm = TRUE), "\n")
+  rm(tmp)
+}
+tmp <- as.numeric(gapminder$continent)
+thresholdValue <- 50
 ```
 
 <!-- Challenge 3 answer end -->
@@ -96,7 +116,7 @@ Modify the script from Challenge 3 to loop over each country. This time print ou
 <!-- Challenge 4 answer begin -->
 
 ```{r}
-# your code goes here
+ upperThreshold <- 70
 ```
 
 <!-- Challenge 4 answer end -->

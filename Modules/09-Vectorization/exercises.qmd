@@ -30,7 +30,8 @@ Make a new column in the `gapminder` data frame that contains population in unit
 <!-- Challenge 1 answer begin -->
 
 ```{r}
-# your code goes here
+gapminder$pop_millions <- gapminder$pop / 1e6
+head(gapminder)
 ```
 
 <!-- Challenge 1 answer end -->
@@ -42,7 +43,7 @@ On a single graph, plot population, in millions, against year, for all countries
 <!-- Challenge 2a answer begin -->
 
 ```{r}
-# your code goes here
+ggplot(gapminder, aes(year, pop)) + geom_point()
 ```
 
 <!-- Challenge 2a answer end -->
@@ -55,6 +56,10 @@ Repeat the exercise, graphing only for China, India, and Indonesia. Again, do no
 
 ```{r}
 # your code goes here
+p2 <- c("China","India","Indonesia")
+ggplot(gapminder[gapminder$country %in% p2,],
+       aes(x = year, y = pop_millions)) +
+  geom_point()
 ```
 
 <!-- Challenge 2b answer end -->
@@ -71,15 +76,38 @@ m
 Write down what you think will happen when you run:
 
 -   `m ^ -1`
+
+    \[,1\] \[,2\] \[,3\] \[,4\]
+    \[1,\] 1.0000000 0.2500000 0.1428571 0.10000000
+    \[2,\] 0.5000000 0.2000000 0.1250000 0.09090909
+    \[3,\] 0.3333333 0.1666667 0.1111111 0.08333333
+
 -   `m * c(1, 0, -1)`
+
+    \[,1\] \[,2\] \[,3\] \[,4\]
+    \[1,\] 1 4 7 10
+    \[2,\] 0 0 0 0
+    \[3,\] -3 -6 -9 -12
+
 -   `m > c(0, 20)`
+
+    \[,1\] \[,2\] \[,3\] \[,4\]
+    \[1,\] TRUE FALSE TRUE FALSE
+    \[2,\] FALSE TRUE FALSE TRUE
+    \[3,\] TRUE FALSE TRUE FALSE
+
 -   `m * c(1, 0, -1, 2)`
+
+    \[,1\] \[,2\] \[,3\] \[,4\]
+    \[1,\] 1 8 -7 0
+    \[2,\] 0 5 16 -11
+    \[3,\] -3 0 9 24
 
 Did you get the output you expected? If not and the video didn't clear things up, let me know and we can discuss.
 
 <!-- Challenge 3 answer begin -->
 
-Your answer goes here.
+Yes, I got the output I expected.
 
 <!-- Challenge 3 answer end -->
 
@@ -87,9 +115,7 @@ Your answer goes here.
 
 We're interested in looking at the sum of the following sequence of fractions:
 
-```         
-x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
-```
+    x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 
 This would be tedious to type out, and impossible for high values of $n$. Use vectorization to compute $x$ when $n=100$.
 
@@ -97,6 +123,8 @@ This would be tedious to type out, and impossible for high values of $n$. Use ve
 
 ```{r}
 # your code goes here
+sum(1/(1:100)^2)
+sum(1/(1:1e04)^2)
 ```
 
 <!-- Challenge 4a answer end -->
@@ -109,6 +137,8 @@ What is the sum when $n=10,000$?
 
 ```{r}
 # your code goes here
+n <- 10000
+sum(1/(1:n)^2)
 ```
 
 <!-- Challenge 4b answer end -->
