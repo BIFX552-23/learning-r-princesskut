@@ -30,6 +30,10 @@ Hint: To convert from Kelvin to Celsius you subtract 273.15
 
 ```{r}
 # your code goes here
+kelvin_to_celsius <- function(temp) {
+ celsius <- temp - 273.15
+ return(celsius)
+}
 ```
 
 <!-- Challenge 1 answer end -->
@@ -39,11 +43,7 @@ Hint: To convert from Kelvin to Celsius you subtract 273.15
 Convert Fahrenheit to Celsius:
 
 ```{r}
-#' fahr_to_kelvin
-#' Convert degrees fahrenheit to degrees kelvin
-#' 
-#' @param temp Numeric, temperature in degrees fahrenheight
-#' @return Temperature in degrees kelvin
+
 fahr_to_kelvin <- function(temp)
 {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
@@ -57,6 +57,11 @@ Define the function to convert directly from Fahrenheit to Celsius, by reusing y
 
 ```{r}
 # your code goes here
+fahr_to_celsius <- function(temp) {
+  temp_k <- fahr_to_kelvin(temp)
+  result <- kelvin_to_celsius(temp_k)
+  return(result)
+}
 ```
 
 <!-- Challenge 2 answer end -->
@@ -69,6 +74,12 @@ Use defensive programming to ensure that our `fahr_to_celsius()` function throws
 
 ```{r}
 # your code goes here
+fahr_to_celsius <- function(temp) {
+  stopifnot(is.numeric(temp))
+  temp_k <- fahr_to_kelvin(temp)
+  result <- kelvin_to_celsius(temp_k)
+  return(result)
+}
 ```
 
 <!-- Challenge 3 answer end -->
@@ -78,22 +89,26 @@ Use defensive programming to ensure that our `fahr_to_celsius()` function throws
 The `paste()` function can be used to combine text together, e.g:
 
 ```{r}
-best_practice <- c("Write", "programs", "for", "people", "not", "computers")
-paste(best_practice, collapse=" ")
+best <- c("Write", "programs", "for", "people", "not", "computers")
+paste(best, collapse=" ")
 ```
 
 Write a function called `fence()` that takes two vectors as arguments, called `text` and `wrapper`, and prints out the text wrapped with the wrapper. For example, `fence(text=best_practice, wrapper="***")` should give the following result:
 
-```         
-"*** Write programs for people not computers ***"
-```
+    "*** Write programs for people not computers ***"
 
 <!-- Challenge 4 answer begin -->
 
 ```{r}
 # Your code goes here
 # check to make sure your code works:
-fence(text=best_practice, wrapper="***")
+fence <- function(text, wrapper){
+  text <- c(wrapper, text, wrapper)
+  result <- paste(text, collapse = " ")
+  return(result)
+}
+fence <- fence(text = best, wrapper="***")
+fence
 ```
 
 <!-- Challenge 4 answer end -->
